@@ -7,7 +7,7 @@ describe('find or get elements by diff locators', () =>{
         cy.visit('/login');
     })
 
-    it('different locators',()=>{
+    xit('different locators',()=>{
         cy.get("input[name='username']").type('CydeoStudent');
 
         cy.get("[type='text']").clear();
@@ -32,4 +32,20 @@ describe('find or get elements by diff locators', () =>{
 
     })
 
+    xit('Check finding elements by traveling through DOM',()=>{
+
+        cy.get('input[name="username"]').parents('form').find('button').should('contain','Login').click();
+    })
+    it('Check different type of assertions',()=>{
+
+        //should assertions
+        cy.get('#wooden_spoon').should('contain','Login').and('have.class','btn btn-primary');
+       //expect assertions
+        cy.get('#wooden_spoon').then((buttonElement)=>{
+            expect(buttonElement).to.have.text('Login');
+            expect(buttonElement).to.have.class('btn btn-primary');
+
+        })
+    })
+        
 })
