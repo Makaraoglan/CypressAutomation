@@ -18,6 +18,18 @@ describe('find or get elements by diff locators', () =>{
             expect(item).to.have.attr("type");
 
         })
+
+        //attribute name
+        cy.get("[type]");
+
+        //by className locator
+        cy.get('.btn.btn-primary');
+
+        //by id locator
+        cy.get("#wooden_spoon");
+
+        cy.get('button').should('contain','Login').click();
+
     })
 
 })
